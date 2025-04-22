@@ -17,6 +17,16 @@ public class Target : MonoBehaviour
         transform.position = RandomSpawnPos();
     }
 
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);   
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);   
+    }
+
     Vector3 RandomForce()
     {
         return Vector3.up * Random.Range(minSpeed, maxSpeed);
@@ -31,4 +41,6 @@ public class Target : MonoBehaviour
     {
         return new Vector3(Random.Range(-xRange, xRange), ySpawnPos);
     }
+
+
 }
